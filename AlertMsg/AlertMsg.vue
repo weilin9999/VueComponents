@@ -35,11 +35,9 @@ export default {
                 ()=>{
                     let lenTemp = this.msg.length
                     this.msg[lenTemp-1].ava = true
+                    console.log(lenTemp)
                     setTimeout(()=>{
-                        if(lenTemp == 1){
-                            window.clearInterval(this.timetick)
-                        }
-                        if(lenTemp > 0){
+                        if(lenTemp >= 1){
                             this.msg.pop()
                         }else{
                             window.clearInterval(this.timetick)
