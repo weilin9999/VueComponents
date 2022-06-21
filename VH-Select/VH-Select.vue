@@ -29,6 +29,7 @@
 		}
   },
   props:{
+		modelValue:null,
 		label:null,
 		vhKey:null,
 		curData:String,
@@ -71,6 +72,7 @@
 			let key = item[this.vhKey]
 			this.current = value;
 			this.$emit('change',key);
+			this.$emit('update:modelValue',key);
 		},
 		timeOutClose(){
 			if(this.isShow == false){
