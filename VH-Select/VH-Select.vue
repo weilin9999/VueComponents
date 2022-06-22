@@ -1,13 +1,13 @@
 <template>
 	<div :style="[isShow ? 'border: 1px solid #409eff;':'','width: '+width+';']" class="vh-dropdown">
-		<div class="cur-name" @click="timeOutClose">{{current}} <span :class="isShow ? 'onSelect iconfont icon-xiangshang2':'driSelect iconfont icon-31xiala'"></span> </div>
+		<div class="cur-name" @click="timeOutClose"><p>{{current}}</p> <span :class="isShow ? 'onSelect iconfont icon-xiangshang2':'driSelect iconfont icon-31xiala'"></span> </div>
 		<div :class="[isShow?'on':'',isopen ? 'list-and-search openSelect':'list-and-search disSelect']">
 			<div class="squerSpen"></div>
 			<div class="search-module clearfix" v-show="isNeedSearch">
 				<input class="search-text" @input='search' :placeholder="placeholder" />
 			</div>
 			<ul class="list-module">
-				<li v-for ="(item,index) in datalist" @click="clickItem(item)" :key="index">
+				<li :title="labelFunc(item)" v-for ="(item,index) in datalist" @click="clickItem(item)" :key="index">
 					<span class="list-item-text">{{labelFunc(item)}}</span>
 				</li>
 			</ul>
@@ -117,6 +117,10 @@
         overflow-y: auto;
 		border-bottom-left-radius: 8px;
 		border-bottom-right-radius: 8px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 5px 0;
     }
 	
 	.list-module::-webkit-scrollbar {
@@ -135,13 +139,16 @@
 	}
 
     li {
-		width: 100%;
-		height: 34px;
+		border-radius: 5px;
+		width: 80%;
+		height: 55px;
 		list-style: none;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		padding: 5px;
+		text-align: center;
     }
     li:hover {
         cursor:pointer;
@@ -149,7 +156,11 @@
         background: #d9ecff;
     }
 	.list-item-text{
+		width: 100%;
 		color: #606266;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		white-space: nowrap
 	}
     ._self-show {
 		display: block!important;
@@ -219,6 +230,11 @@
    		padding: 0px 10px;
 		display: flex;
     	justify-content: space-between;
+	}
+	.cur-name p{
+		overflow: hidden;
+		text-overflow:ellipsis;
+		white-space: nowrap
 	}
 	.tip-nodata {
 		font-size: 14px;
