@@ -1,5 +1,5 @@
 <template>
-	<div :style="[isShow ? 'border: 1px solid #409eff;':'','width: '+width+';']" class="vh-dropdown">
+	<div :style="[isShow ? 'border: 1px solid #409eff;':'','width: '+width+'px;']" class="vh-dropdown">
 		<div class="cur-name" @click="timeOutClose"><p>{{current}}</p> <span :class="isShow ? 'onSelect iconfont icon-xiangshang2':'driSelect iconfont icon-31xiala'"></span> </div>
 		<div :class="[isShow?'on':'',isopen ? 'list-and-search openSelect':'list-and-search disSelect']">
 			<div class="squerSpen"></div>
@@ -44,7 +44,7 @@
 		},
 		width:{
 			type: String,
-			default: '150px' 
+			default: '150' 
 		},
   },
   created(){
